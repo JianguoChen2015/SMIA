@@ -1,0 +1,113 @@
+sample:
+  random:
+    - 3
+    - 6
+    - 9
+  # 'true' | 'false'
+  random_param: 'true'
+  input_folder: '../Datasets/original/BMS1/tissue1'
+  output_folder: '../Datasets/transformed'
+  augmenters:
+    Add:
+      value:
+        min: -50
+        max: 50
+        step: 10
+    AdditiveGaussianNoise:
+      scale:
+        min: 5
+        max: 20
+        step: 5
+    ContrastNormalization:
+      alpha:
+        min: 0.5
+        max: 1.5
+        step: 0.1
+    Multiply:
+      mul:
+        min: 0.5
+        max: 2
+        step: 0.5
+    GaussianBlur:
+      sigma:
+        min: 0.5
+        max: 2
+        step: 0.5
+    CLAHE:
+      clip_limit:
+        min: 1
+        max: 5
+        step: 1
+    Emboss:
+      alpha:
+        min: 0.1
+        max: 1
+        step: 0.2
+    Sharpen:
+      alpha:
+        min: 0.1
+        max: 1
+        step: 0.2
+    Fliplr:
+      p:
+        min: 1
+        max: 2
+        step: 1
+    Flipud:
+      p:
+        min: 1
+        max: 2
+        step: 1
+    Affine:
+      scale:
+        min: 1
+        max: 2
+        step: 1
+      translate_px:
+        min: 10
+        max: 50
+        step: 5
+        requireInt: 'true'
+      rotate:
+        min: 10
+        max: 50
+        step: 5
+      shear:
+        min: 10
+        max: 50
+        step: 5
+    ElasticTransformation:
+      alpha:
+        min: 10
+        max: 50
+        step: 5
+      sigma:
+        min: 10
+        max: 50
+        step: 5
+    PerspectiveTransform:
+      scale:
+        min: 0.01
+        max: 0.1
+        step: 0.01
+    PiecewiseAffine:
+      scale:
+        min: 0.01
+        max: 0.1
+        step: 0.01
+    Rot90:
+      k:
+        min: 1
+        max: 4
+        step: 1
+        requireInt: 'true'
+    Superpixels:
+      p_replace:
+        min: 0.1
+        max: 0.2
+        step: 0.1
+      n_segments:
+        min: 16
+        max: 64
+        step: 16
+        requireInt: 'true'
